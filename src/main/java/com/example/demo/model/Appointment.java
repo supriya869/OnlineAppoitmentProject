@@ -7,6 +7,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name="appointments")
 public class Appointment {
+	
+	@ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;   // <--- this is important
+  
 	/*
 	 * public String getUserName() { return userName; }
 	 * 
@@ -16,6 +21,14 @@ public class Appointment {
 	 * 
 	 * public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
 	 */
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
 
 	/*
 	 * private String userName; private String userEmail;
@@ -59,6 +72,15 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+    public String getPatientEmail() {
+		return patientEmail;
+	}
+
+	public void setPatientEmail(String patientEmail) {
+		this.patientEmail = patientEmail;
+	}
+
+	private String patientEmail;  // <-- must exist
 
     private LocalDateTime dateTime;
 
@@ -66,6 +88,16 @@ public class Appointment {
     private Status status = Status.PENDING;
 
     public enum Status { PENDING, APPROVED, REJECTED }
+    public boolean isCancelled() {
+		return cancelled;
+	}
+
+	public void setCancelled(boolean cancelled) {
+		this.cancelled = cancelled;
+	}
+
+	private boolean cancelled = false; // ✅ new field
+
 
     // Getters & Setters
 }

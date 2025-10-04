@@ -47,8 +47,34 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
+    
+    
+    public String getVerificationCode() {
+		return verificationCode;
+	}
 
-    public enum Role { USER, ADMIN }
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
+	private String verificationCode; // store 6-digit code
+private boolean Verified;
+
+    public boolean isVerified() {
+	return Verified;
+}
+
+public void setVerified(boolean verified) {
+	Verified = verified;
+}
+
+	public enum Role { USER, ADMIN }
+
+	 
+
+
+
+
 
     // Getters & Setters
 }
