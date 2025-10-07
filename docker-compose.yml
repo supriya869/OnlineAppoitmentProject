@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: my-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: appointments_db
+    ports:
+      - "3306:3306"
+    networks:
+      - springboot-network
+
+  app:
+    build: .
+    container_name: online-appointment-app
+    ports:
+      - "8035:8035"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/appointments_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: rootpass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - springboot-network
+
+networks:
+  springboot-network:
+    driver: bridge
