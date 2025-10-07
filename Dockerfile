@@ -1,11 +1,11 @@
-# Use Java 17 as base image (or 21 if you use that)
+# Use Java 17 as base image
 FROM openjdk:17-jdk-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy Maven/Gradle build JAR to container
-COPY target/Onlineappoitment.jar app.jar
+# Copy the correct JAR built by Maven
+COPY target/Onlineappoitment-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the app port
 EXPOSE 8035
