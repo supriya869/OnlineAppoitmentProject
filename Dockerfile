@@ -24,7 +24,7 @@ RUN ./mvnw clean package -DskipTests
 EXPOSE 8035
 
 # Set environment variables for DB (optional)
-ENV DB_HOST=host.docker.internal
+ENV DB_HOST=mend-zone-db.cqcpodz6vodb.ap-south-1.rds.amazonaws.com
 ENV DB_PORT=3306
 ENV DB_NAME=appointments_db
 ENV DATASOURCE_USER=root
