@@ -17,7 +17,9 @@ public class WebConfig {
                 registry.addMapping("/**")
                         .allowedOrigins(
                         		"http://localhost:3000",
-                        		"https://doctorbookingfrontend-git-main-supriya-nerellas-projects.vercel"
+                        		"https://doctorbookingfrontend-git-main-supriya-nerellas-projects.vercel",
+                              " https://doctor-booking-frontend-bbfd.vercel.app"
+                            
                         		) // ✅ Replace with your Vercel frontend URL
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
