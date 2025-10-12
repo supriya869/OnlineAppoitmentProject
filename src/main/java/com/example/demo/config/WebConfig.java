@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -16,11 +15,10 @@ public class WebConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins(
-                        		"http://localhost:3000",
-                        		"https://doctorbookingfrontend-git-main-supriya-nerellas-projects.vercel",
-                              " https://doctor-booking-frontend-bbfd.vercel.app"
-                            
-                        		) // ✅ Replace with your Vercel frontend URL
+                            "http://localhost:3000",
+                            "https://doctorbookingfrontend-git-main-supriya-nerellas-projects.vercel.app",
+                            "https://doctor-booking-frontend-bbfd.vercel.app"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
